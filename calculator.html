@@ -2,15 +2,46 @@
 <!--Header-->
 <head>
 <!--JavaScript Code-->
-<script type="text/javascript">
-	
+<script type = "text/javascript">
+
+	function setCalculation(){
+		var x = document.getElementById("stiripChoice");
+		var dosageInput = document.getElementById("dosage");
+
+		if (x == "Y"){
+			dosageInput.setAttribute("max", 0.8);
+		} else {
+			dosageInput.setAttribute("max", 0.5);
+		}
+		document.getElementById("demo").innerHTML = dosageInput.max;
+	}
+
 
 </script>
 </head>
 <!--Body-->
 <body>
 <div id = "calInputs">
+<!--Is Patient taking Stripentumab?-->
+<label for = "stiripChoice"> Is the patient taking Stiripentumab?</label>
+<select id = "stiripChoice" onChange="setCalculation()">
+	<option value = "" disabled selected>-</option>
+	<option value = "Y">Yes</option>
+	<option value = "N">No</option>
+</select>
+</br></br>
+<!--Patient Weight-->
+<label for = "patientWeight">How much does the patient weigh? (kg)</label>
+<input type = "number" id = "patientWeight">
+</br></br>
 
+<label for = "dosage">What is the dosage required? (mg/kg/day)</label>
+<input id = "dosage" type = "number" min = "0.2" max = "0.5" step="0.1">
+</br></br>
+<div id="test">Test</div>
+
+
+<button onclick="calculateOutput()">Calculate</button>
 </div>
 
 
