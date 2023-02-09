@@ -1,63 +1,95 @@
 <html>
 <!--Header-->
 <head>
-<!--JavaScript Code-->
-<script type = "text/javascript">
+	<!--JavaScript Code-->
+	<script type = "text/javascript">
 
 	//Determines if patient is on drug, then adjusts maximum value
-	function setCalculation(){
-		var result = document.getElementById("stiripChoice").value;
-		var dosage = document.getElementById("dosage");
+		function setCalculation(){
+			var result = document.getElementById("stiripChoice").value;
+			var dosage = document.getElementById("dosage");
 
 		//adjusts maximum allowed dosage based on drug consumption
-		if(result == "Y"){
-			dosage.setAttribute("max", 0.5);
-		} else {
-			dosage.setAttribute("max", 0.8);
-		}
+			if(result == "Y"){
+				dosage.setAttribute("max", 0.5);
+			} else {
+				dosage.setAttribute("max", 0.8);
+			}
 
-	}
+		}
 
 	//Calculates output based on inputs.
-	function calculateOutput(){
-		var result = document.getElementById("stiripChoice").value;
-		var limit;
-		var dosage = document.getElementById("dosage").value;
-		var weight = document.getElementById("patientWeight").value;
-		var maxDosage = dosage * weight;
+		function calculateOutput(){
 
-		//sets dosage maximum based on drug consumption
-		if(result == "Y"){
-			limit = 20;
-		} else {
-			limit = 30;
+			//calculation variables
+			var result = document.getElementById("stiripChoice").value;
+			var limit;
+			var dosage = document.getElementById("dosage").value;
+			var weight = document.getElementById("patientWeight").value;
+			var maxDosage = dosage * weight;
+			var twiceDailyDose = maxDosage/5;
+
+			//output variables
+			var bottleSize;
+			var bottleQuant;
+			var daysSupply;
+
+
+			//sets dosage maximum based on drug consumption
+			if(result == "Y"){
+				limit = 20;
+			} else {
+				limit = 30;
+			}
+
+
+			//Rounding function
+			function round(value, dp) {
+				dp || (step = 1.0);
+				var inv = 1.0 / dp;
+				return Math.round(value * inv) / inv;
+			}	
+
+
+			//if maxDosage exceeds limit, limit replaces dosage
+			if(maxDosage>=limit){
+				maxDosage = limit;
+			}
+
+			
+			//rounding based on if greater/less than 1.5
+			if(twiceDailyDose<=1.5){
+				twiceDailyDose = round(twiceDailyDose, 0.1);
+			}
+
+			if(twiceDailyDose>1.5){
+				twiceDailyDose = round(twiceDailyDose, 0.5);
+			}
+
+			//fills out output variables based on twice daily dosage
+			switch(twiceDailyDose){
+				case:
+			}
+
 		}
 
 
-		//if maxDosage exceeds limit, limit replaces dosage
-		if(maxDosage>=limit){
-			maxDosage = limit;
-		}
-
-	}
-
-
-</script>
+	</script>
 </head>
 <!--Body-->
 <body>
-<div id = "calInputs">
-<!--Is Patient taking Stripentumab?-->
-<label for = "stiripChoice"> Is the patient taking Stiripentumab?</label>
-<select id = "stiripChoice" oninput="setCalculation()">
-	<option disabled selected> - </option>
-	<option value = "Y">Yes</option>
-	<option value = "N">No</option>
-</select>
-</br></br>
-<!--Patient Weight-->
-<label for = "patientWeight">How much does the patient weigh? (kg)</label>
-<input type = "number" id = "patientWeight" min = "0">
+	<div id = "calInputs">
+		<!--Is Patient taking Stripentumab?-->
+		<label for = "stiripChoice"> Is the patient taking Stiripentumab?</label>
+		<select id = "stiripChoice" oninput="setCalculation()">
+			<option disabled selected> - </option>
+			<option value = "Y">Yes</option>
+			<option value = "N">No</option>
+		</select>
+	</br></br>
+	<!--Patient Weight-->
+	<label for = "patientWeight">How much does the patient weigh? (kg)</label>
+	<input type = "number" id = "patientWeight" min = "0">
 </br></br>
 
 <label for = "dosage">What is the dosage required? (mg/kg/day)</label>
