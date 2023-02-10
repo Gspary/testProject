@@ -1,3 +1,12 @@
+/*
+
+All of the JavaScript processing for Drug Dosage Calculator
+Created 09/02/2023 by George Spary
+
+*/
+
+
+
 
 	//Determines if patient is on drug, then adjusts maximum value
 		function setCalculation(){
