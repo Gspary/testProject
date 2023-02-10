@@ -1,0 +1,51 @@
+#calOutputs{
+	text-align: left;
+	border: 1px solid black;
+	width: 20%;
+	display: block;
+	padding-left: 10px;
+	margin: 0 auto;
+}
+
+#calInputs{
+	text-align: center;
+	border: 1px solid black;
+	width: 20%;
+	display: block;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	margin: 0 auto;
+}
+
+
+#calButton, #header{
+	background-color: #5941A9 !important;
+	color: #fff;
+
+}
+
+#twiceDaily, #bottleS,#bottleQ,#daySupply{
+	font-weight: bold;
+	text-align: center;
+    font-size: 20pt;
+}
+
+
+p{
+	text-decoration: underline;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+	#calInputs, #calOutputs{
+		text-align: center;
+		border: 1px solid black;
+		width: 70%;
+		display: block;
+		padding-bottom: 10px;
+		padding-top: 10px;
+		margin: 0 auto;
+	}
+}
