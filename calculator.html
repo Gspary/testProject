@@ -216,7 +216,7 @@
     </header>
 	<div id = "calInputs">
 		<!--Is Patient taking Stripentumab?-->
-		<label for = "stiripChoice"> Is the patient taking Stiripentumab?</label>
+		<span> Is the patient taking Stiripentumab? </span>
 		<select id = "stiripChoice" oninput="setCalculation()">
 			<option disabled selected> - </option>
 			<option value = "Y">Yes</option>
@@ -224,11 +224,11 @@
 		</select>
 	</br></br>
 	<!--Patient Weight-->
-	<label for = "patientWeight">How much does the patient weigh? (kg)</label>
+	<span>How much does the patient weigh? (kg)</span>
 	<input type = "number" id = "patientWeight" min = "0">
 </br></br>
 
-<label for = "dosage">What is the dosage required? (mg/kg/day)</label>
+<span>What is the dosage required? (mg/kg/day)</span>
 <input id = "dosage" type = "number" min = "0.2" step="0.1">
 </br></br>
 
@@ -240,7 +240,7 @@
 <div id = "calOutputs">
 	<p>Twice daily dosage: <div id = "twiceDaily"></div> </p>
 	<p>Bottle size (mL): <div id = "bottleS"></div> </p>
-	<p>Bottle Quantity: <div id = "bottleQ"></div></p>
+	<p>Number of bottles: <div id = "bottleQ"></div></p>
 	<p>Days of supply: <div id = "daySupply"></div> </p>
 </div>
 

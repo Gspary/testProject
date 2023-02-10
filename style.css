@@ -1,7 +1,7 @@
 #calOutputs{
 	text-align: left;
 	border: 1px solid black;
-	width: 20%;
+	width: 25%;
 	display: block;
 	padding-left: 10px;
 	margin: 0 auto;
@@ -10,7 +10,7 @@
 #calInputs{
 	text-align: center;
 	border: 1px solid black;
-	width: 20%;
+	width: 30%;
 	display: block;
 	padding-bottom: 10px;
 	padding-top: 10px;
@@ -31,11 +31,18 @@
 }
 
 
-p{
-	text-decoration: underline;
+#dosage, #patientWeight{
+	max-width: 75px;
 }
 
+#calOutputs p {
+	text-decoration: underline;
+	text-align: left;
+}
 
+span{
+	padding-right: 12px;
+}
 
 
 @media only screen and (max-width: 600px) {
@@ -44,8 +51,7 @@ p{
 		border: 1px solid black;
 		width: 70%;
 		display: block;
-		padding-bottom: 10px;
-		padding-top: 10px;
+		padding: 10px;
 		margin: 0 auto;
 	}
 }
